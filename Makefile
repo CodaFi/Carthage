@@ -10,11 +10,13 @@ CARTHAGE_EXECUTABLE=$(BUILT_BUNDLE)/Contents/MacOS/carthage
 
 FRAMEWORKS_FOLDER=/Library/Frameworks
 BINARIES_FOLDER=/usr/local/bin
+MANDIR=/usr/local/share/man/man1
 
 OUTPUT_PACKAGE=Carthage.pkg
 
 VERSION_STRING=$(shell agvtool what-marketing-version -terse1)
 COMPONENTS_PLIST=Source/carthage/Components.plist
+MAN_PAGE=Documentation/carthage.1
 
 .PHONY: all bootstrap clean install package test uninstall
 
@@ -34,6 +36,8 @@ clean:
 
 install: package
 	sudo installer -pkg Carthage.pkg -target /
+	@echo "Installing manpage"
+	-cp $(MAN_PAGE) $(MANDIR)/carthage.1
 
 uninstall:
 	rm -rf "$(FRAMEWORKS_FOLDER)/CarthageKit.framework"

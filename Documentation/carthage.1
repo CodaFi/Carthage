@@ -1,0 +1,47 @@
+.TH Carthage 1 "12/15/2014" "Github"
+.SH NAME 
+carthage \- A simple, decentralized dependency manager for Cocoa
+.SH SYNOPSIS
+.B carthage
+<command> [<args>]
+.SH DESCRIPTION
+.B carthage
+Carthage is intended to be the simplest way to add frameworks to your Cocoa application.
+.PP
+The basic workflow looks something like this
+.TP
+.BR 
+1. Create a Cartfile that lists the frameworks you would like to use in your project.
+.TP
+.BR
+2. Run Carthage, which fetches and builds each framework you’ve listed.
+.TP
+.BR
+3. Drag the built framework binaries into your application’s Xcode project.
+.PP
+Carthage builds your dependencies and provides you with binary frameworks, 
+but you retain full control over your project structure and setup.
+Carthage does not automatically modify your project files or your build settings.
+.SH COMMANDS
+.TP
+.BR bootstrap
+Check out and build the project's dependencies.
+.TP
+.BR build
+Build the project's dependencies.
+.TP
+.BR checkout
+Check out the project's dependencies.
+.TP
+.BR copy-frameworks
+In a Run Script build phase, copies each framework specified by an SCRIPT_INPUT_FILE environment variable into the built app bundle.
+.TP
+.BR help
+Displays all available commands their functions.
+.TP
+.BR update
+Update and rebuild the project's dependencies.
+.TP
+.BR version
+Display the current version of Carthage.
+
